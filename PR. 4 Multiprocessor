@@ -1,0 +1,105 @@
+// Question : 1
+
+#include<iostream>
+using namespace std;
+
+class Message{
+	
+	private :
+		string msg1;
+		
+	public :
+		
+		Message(){
+			cout << "Enter Message 1 = ";
+			cin >> msg1;
+		}
+		
+		void print(){
+			cout << "Message 1 = " << msg1 << endl;
+		}
+		
+		void print(string msg2){
+				cout << "Message 2 = " << msg2 << endl;
+		}
+		
+		void add(string msg2){
+				cout << msg1 << " " << msg2 << endl;
+		}
+};
+int main(){
+	
+	Message m;
+	m.print();
+	
+	string msg2;
+	cout << endl << "Enter Message 2 = ";
+	cin >> msg2;
+	m.print(msg2);
+	
+	cout << endl << "Marge two Message's = ";
+	m.add(msg2);	
+}
+
+// Question : 2
+
+#include <iostream>
+using namespace std;
+
+class Distance{
+	
+private:
+    int km,meter;
+
+public:
+    
+    void setKm(){
+        cout << "Enter Km : ";
+        cin >> km;
+    }
+
+    void setMeter(){
+        cout << "Enter meter : ";
+        cin >> meter;
+    }
+
+    Distance operator+(Distance input2){
+        Distance result;
+        int totalMeter = (km * 1000 + meter) + (input2.km * 1000 + input2.meter);
+        result.km = totalMeter / 1000;
+        result.meter = totalMeter % 1000;
+        return result;
+    }
+
+  
+    void getData(){
+       cout << "Km : " << km << " , Meter : " << meter <<endl;
+    }
+};
+
+int main() {
+  
+    Distance input1;
+    input1.setKm();
+    input1.setMeter();
+
+    Distance input2;
+    input2.setKm();
+    input2.setMeter();
+
+    cout << endl << "-------------------\n";
+    cout << "input 1 : ";
+    input1.getData();
+    cout <<"-------------------\n"<< endl;
+
+    cout << "input 2 : ";
+    input2.getData();
+    cout <<"-------------------\n"<< endl;
+
+    Distance total = input1 + input2;
+
+    cout <<"-------------------\n";
+    cout << "Output Total = ";
+    total.getData();
+    cout <<"-------------------\n";
+}
