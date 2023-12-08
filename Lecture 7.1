@@ -1,0 +1,114 @@
+#include<iostream>
+using namespace std;
+class Divide{
+	public :
+		int a,b,ans;
+		char error[30]="Can not Divide by ZERO...";
+		
+	public :
+		
+		void setData(){
+			cout<<"Enter A : ";
+			cin>>a;
+			cout<<"Enter B : ";
+			cin>>b;
+		
+		if(b==0)
+		{
+			throw error;
+		}
+		else{
+			cout<<"\n______DIVISION______\n";
+			cout<<"Ans\t : "<<a/b<<endl;
+		}
+		}
+};
+class Vote{
+	private :
+	int age;
+	char msg[70]="Your Age Less than 18, You Can not be able to Vote !!";
+	
+	public :
+		void setData1(){
+			cout<<endl<<"Enter your age : ";
+			cin>>age;
+			
+			if(age==18){
+				cout<<endl<<"_______________________________"<<endl;
+				cout<<endl<<"You Cannot be able to Vote !!"<<endl;
+			}else if(age<=18){
+				throw msg;
+			}else{
+				cout<<endl<<"You Can Vote !!"<<endl;
+			}
+		}
+};
+
+class Pass{
+	private :
+		
+		char pswd[100];
+		int upp=0;
+		char pws[500]="A password cannot be validated if it doesn’t contains an uppercase letter";
+	
+	public :
+		void password()
+		{	
+			cout<<endl<<"\nCreate Your Password : ";
+			cin>>pswd;
+		for(int i=0;pswd[i]!=NULL;i++)
+		{
+			if(pswd[i]>='A' && pswd[i]<='Z')
+			{
+					upp++;
+			}
+		}
+		if(upp>0){
+			cout<<endl<<"valid password....."<<endl;
+		}
+		
+		else{
+			throw pws;
+		}
+		
+	}
+};
+int main(){
+	
+	Divide d1;
+
+		try{
+			d1.setData();
+		}	
+		catch(char e[]){
+			cout<<endl<<e<<endl;
+		}
+		catch(int e){
+			cout<<endl<<e<<endl;
+		}
+		
+	Vote v1;
+	
+		try{
+			v1.setData1();
+		}	
+		catch(char m[]){
+			cout<<endl<<m<<endl;
+		}
+		catch(int m){
+			cout<<endl<<m<<endl;
+		}
+		
+	
+	Pass p1;
+		
+		try{
+			p1.Pass::password();
+		}	
+		catch(char p[]){
+			cout<<endl<<p<<endl;
+		}
+		catch(int p){
+			cout<<endl<<p<<endl;
+		}
+}
