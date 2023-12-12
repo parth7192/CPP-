@@ -1,0 +1,78 @@
+//Q.1 Write a Program to create a class that illustrates the concept of handling all types of exceptions using general exceptions.
+
+#include <iostream>
+using namespace std;
+
+class ExceptionHandler {
+	
+    public:
+    	void handleExceptions() {
+        try {
+        
+            int num, denominator, result;
+
+            cout << "Enter number : ";
+            cin >> num;
+
+            cout << "Enter denominator : ";
+            cin >> denominator;
+
+            if (denominator == 0) {
+                throw ("Denominator cannot be zero");
+            }
+
+            result = num/denominator;
+
+            cout << "Result : " << result << endl;
+        } catch (const exception& ex) {
+        	
+            cout << "Exception caught : " << ex.what() << endl;
+        } catch (...) {
+        	
+            cout << "Unknown exception caught!" << endl;
+        }
+    }
+};
+
+int main() {
+    ExceptionHandler exceptionHandler;
+    exceptionHandler.handleExceptions();
+
+    return 0;
+}
+
+/*Q.2 Write a Program to throw 0 if the age of the user is less than 18, otherwise print that you are eligible to vote. Also, 
+handle that thrown exception and print you are not eligible to vote.*/
+
+#include <iostream>
+using namespace std;
+
+class Vote{
+	private :
+		int age;
+public:
+    void setData(){
+    	cout << "Enter your age: ";
+    	cin >> age;
+
+        if (age < 18){
+            throw 0; 
+        } else {
+            cout << "You are Eligible to Vote!" << endl;
+        }
+    }
+};
+
+int main() {
+    Vote v1;
+    
+    try{
+        v1.setData();
+    } catch (int error) {
+        if (error == 0) {
+            cout << "You are Not Eligible to Vote!" << endl;
+        } else {
+            cout << "Error" << endl;
+        }
+    }
+}
