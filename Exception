@@ -1,0 +1,42 @@
+// Give an example which shows Exception handling of division by zero exception
+
+#include<iostream>
+using namespace std;
+
+class Exception{
+	
+	protected:
+		int a,b,ans;
+		string error = "can't divided by ZERO";
+	
+	public: 
+	
+		void setData(){
+			
+			cout << "Enter A : ";
+			cin  >> a;
+			cout << "Enter B : ";
+			cin >> b;
+			
+		try{
+		
+			if(b==0){
+				throw error;
+			}
+			else{
+				cout << endl << a << "/" << b << " : " << a/b << endl;
+			}
+		}
+		
+		catch(string e){
+			
+			 cout << e << endl;
+		}
+	}
+};
+
+int main(){
+	
+	Exception e1;
+	e1.setData();
+}
