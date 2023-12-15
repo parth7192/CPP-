@@ -1,0 +1,39 @@
+// Write a Program to handle ambuigity error in Hybrid inheritance
+
+#include <iostream>
+using namespace std;
+
+class A{
+public:
+    void RW5() {
+        cout << " A !! " << endl;
+    }
+};
+
+class B : virtual public A{
+public:
+    void RW5() {
+        cout << endl << " B !! " << endl;
+    }
+};
+
+class C : virtual public A{
+public:
+    void RW5() {
+        cout << endl << " C !! " << endl;
+    }
+};
+
+class D : public B, public C {
+public:
+    void RW5() {
+        B::RW5(); 
+        C::RW5();
+        cout << endl << " D !! " << endl;
+    }
+};
+
+int main() {
+    D d1;
+    d1.RW5(); 
+}
