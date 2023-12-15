@@ -1,0 +1,85 @@
+/*Create a Hotel Management System using array of object which will take 
+Hotel Number , Hotel Name , Hotel Type (like hotel or motel) , Hotel Rating , Hotel Location 
+from user and using encapsulation and use of Parameterised Constructor.*/
+
+#include<iostream>
+using namespace std;
+
+class Hotel{
+private:
+    int hotelNumber;
+    string hotelName;
+    string hotelType;
+    int hotelRating;
+    string hotelLocation;
+
+public:
+ 
+    Hotel(int hotelNumber, string hotelName, string hotelType, int hotelRating, string hotelLocation) 
+
+ 
+    int getHotelNumber(){
+        return hotelNumber;
+    }
+
+    string getHotelName(){
+        return hotelName;
+    }
+
+    string getHotelType(){
+        return hotelType;
+    }
+
+    int getHotelRating(){
+        return hotelRating;
+    }
+
+    string getHotelLocation(){
+        return hotelLocation;
+    }
+
+   
+    void displayHotelInfo(){
+        cout << "Hotel Number : " << getHotelNumber() << endl;
+        cout << "Hotel Name : " << getHotelName() << endl;
+        cout << "Hotel Type : " << getHotelType() << endl;
+        cout << "Hotel Rating : " << getHotelRating() << endl;
+        cout << "Hotel Location : " << getHotelLocation() << endl;
+        cout << "------------------------" << endl;
+    }
+};
+
+int main() {
+    int numHotels = 3;
+    string hotels;
+
+    for (int i = 0; i < numHotels; ++i) {
+        int number, rating;
+        string name, type, location;
+
+        cout << "Enter details for Hotel " << i + 1 << " : " << endl;
+        cout << "Hotel Number: ";
+        cin >> number;
+
+        cin.ignore();  
+        cout << "Hotel Name: ";
+        getline(cin, name);
+
+        cout << "Hotel Type: ";
+        getline(cin, type);
+
+        cout << "Hotel Rating: ";
+        cin >> rating;
+
+        cin.ignore();
+        cout << "Hotel Location: ";
+        getline(cin, location);
+
+    }
+
+    cout << "\nHotel Information:\n";
+    for(int i = 0; i < numHotels; ++i) {
+        hotels[i].displayHotelInfo();
+    }
+
+}
