@@ -1,0 +1,54 @@
+/*Create a Bank Management System using array of object which will take 
+A/C Number , A/C Name , A/C Type , A/C Branch , A/C Balance from user. 
+Also add a feature by that user can search any record by  A/C Number.*/
+
+#include<iostream>
+using namespace std;
+
+class Sbi{
+	private:
+		int AcNo;
+		string AcName;
+		string AcType;
+		string AcBranch;
+		double AcBalance;
+		
+	public :
+		void setData()
+		{
+			cout << " ACCOUNT NUMBER : ";
+			cin >> AcNo;
+			cout << " ACCOUNT NAME : ";
+			cin >> AcName;
+			cout << " ACCOUNT TYPE : ";
+			cin >> AcType;
+			cout << " ACCOUNT BRANCH : ";
+			cin >> AcBranch;
+			cout << " ACCOUNT BALANCE : ";
+			cin >> AcBalance;
+		}
+		
+		void getData()
+		{
+			cout << endl << " ACCOUNT NUMBER : " << AcNo << endl;
+			cout << " ACCOUNT NAME : " << AcName << endl;
+			cout << " ACCOUNT TYPE : " << AcType << endl;
+			cout << " ACCOUNT BRANCH : " << AcBranch << endl;
+			cout << " ACCOUNT BALANCE : " << AcBalance << endl;
+		}
+		
+		void search()
+		{
+			cout << endl << " SERCH ACCOUNT NUMBER : " << AcNo <<endl;
+		}
+};
+
+int main()
+{
+	Sbi s1;
+	
+	s1.setData();
+	s1.getData();
+	s1.search();
+	
+}
